@@ -14,19 +14,56 @@ package riscv_pkg is
   constant UART_TX_MEM_ADDR : std_logic_vector(31 downto 0) := x"10000000";
 
   -- RISC-V operation
+  -- RV32I Base Instruction Set
   type op_t is (
     NOP, -- No operation
     UNKNOWN, -- Instruction not recognized by decoder
-    ADDI, -- Add immediate
     LUI, -- Load upper immediate
-    SB, -- Store byte
-    LBU, -- Load byte unsigned
+    AUIPC,
+    JAL, -- Jump and link
+    JALR,  -- Jump and link register
     BEQ, -- Branch if equal
     BNE, -- Branch if not equal
     BLT, -- Branch if less than
     BGE, -- Branch if greater or equals
-    JAL, -- Jump and link
-    JALR  -- Jump and link register
+    BLTU, -- Branch less than unsigned
+    BGEU, -- Branch greater or equals unsigned
+    LB,
+    LH,
+    LW,
+    LBU,
+    LHU,
+    SB, -- Store byte
+    SW,
+    ADDI, -- Add Immediate
+    SLTI,
+    SLTIU,
+    XORI,
+    ORI,
+    ANDI,
+    SLLI,
+    SRLI,
+    SRAI,
+    OP_ADD,
+    OP_SUB,
+    OP_SLL,
+    SLT,
+    SLTU,
+    OP_XOR,
+    OP_SRL,
+    OP_SRA,
+    OP_OR,
+    OP_AND,
+    FENCE,
+    FENCEI,
+    ECALL,
+    EBREAK,
+    CSRRW,
+    CSRRS,
+    CSRRC,
+    CSRRWI,
+    CSRRSI,
+    CSRRCI
   );
 
   -- ALU operation
