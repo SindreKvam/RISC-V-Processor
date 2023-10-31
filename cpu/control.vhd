@@ -143,13 +143,6 @@ begin
                             alu_src_2 <= signed(imm_s);
                             state <= MEM_WRITE;
 
-                        -- I-type
---                        when LBU =>
---                            alu_op <= ADD;
---                            alu_src_1 <= signed(regs(to_integer(unsigned(rs1))));
---                            alu_src_2 <= signed(imm_i);
---                            state <= EXECUTE_1;
-
                         -- B-type
                         when BNE | BEQ | BGE | BLT =>
                             alu_op <= SUB;
@@ -163,10 +156,6 @@ begin
                             alu_src_1 <= signed(current_pc);
                             alu_src_2 <= signed(imm_j);
                             state <= EXECUTE_1;
-
-                        -- I-type
-                        --when JALR =>
-                            
 
                         when others =>
                             null;
